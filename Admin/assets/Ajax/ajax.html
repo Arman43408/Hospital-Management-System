@@ -1,0 +1,43 @@
+<html>
+	<head>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function checkEmail() {
+			let email = document.getElementById('n_email').value;
+			let http = new XMLHttpRequest();
+
+			http.open('POST', '../model/checkEmailModel.php', true);
+			http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			http.send('uemail='+email);
+			//document.getElementById('msg').innerHTML = "<img src='../assets/loading.gif' width='70px' height='70px'>";
+
+			http.onreadystatechange = function() {
+				if(this.readyState == 4 && this.status == 200){
+					alert(this.responseText);
+					//document.getElementById('emailStatus').innerHTML= this.responseText;
+					//document.getElementById('msg').innerHTML = "";
+				}
+			}
+		}
+
+		function checkLogin() {
+			let l_email = document.getElementById('u_email').value;
+			let http = new XMLHttpRequest();
+
+			http.open('POST', '../model/checkLoginModel.php', true);
+			http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			http.send('lemail='+l_email);
+			//document.getElementById('msg').innerHTML = "<img src='../assets/loading.gif' width='70px' height='70px'>";
+
+			http.onreadystatechange = function() {
+				if(this.readyState == 4 && this.status == 200){
+					alert(this.responseText);
+					//document.getElementById('emailStatus').innerHTML= this.responseText;
+					//document.getElementById('msg').innerHTML = "";
+				}
+			}
+		}
+		</script>
+	</body>
+</html>
